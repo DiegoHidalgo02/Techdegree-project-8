@@ -75,12 +75,13 @@
     width: 100%;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
     background:rgba(0,0,0,0.5)
 }
 
 .modalCard{
     width: 37%;
-    margin-top: 15%;
+    margin-top: -150px;
     background-color: white;
     color: black;
     text-align: center;
