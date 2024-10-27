@@ -59,3 +59,55 @@
     }
 }
 
+/*********************************************************************************************/
+
+/*OVERLAY*/
+
+.overlay{
+    position: fixed;
+    top: 0;
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background:rgba(0,0,0,0.5)
+}
+
+.modalCard{
+    width: 37%;
+    margin-top: 15%;
+    background-color: white;
+    color: black;
+    text-align: center;
+    padding: 2em;
+    border-radius: 8px;
+    box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px, rgba(6, 24, 44, 0.65) 0px 4px 6px -1px, rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
+
+    > div > span{
+        margin-left: 90%;
+        background-color: transparent;
+        border: none;
+
+    } 
+
+    .imgCard{
+        width: 100%;
+        img{
+            width: 50%;
+        };
+    }
+
+    .contentCard{
+        margin-top: 20px;
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    hr{
+        margin: 1.7em 0 1.7em 0;
+    }
+}
+
+
