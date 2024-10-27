@@ -27,6 +27,7 @@
     padding: 1em;
     border: 1px solid gray;
     border-radius: 5px;
+    cursor: pointer;
 
     .userImg{
         width: 35%;
@@ -91,7 +92,7 @@
         margin-left: 90%;
         background-color: transparent;
         border: none;
-
+        cursor: pointer;
     } 
 
     .imgCard{
