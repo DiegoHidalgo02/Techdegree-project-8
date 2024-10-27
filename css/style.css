@@ -4,3 +4,49 @@
     margin: 0;
 }
 
+.employeesContainer{
+    width: 90%;
+    max-width: 1024px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 285px);
+    gap: 2em;
+}
+
+.employee{
+    display: flex;
+    padding: 1em;
+    border: 1px solid gray;
+    border-radius: 5px;
+
+    .userImg{
+        width: 35%;
+        min-width: 90px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .userImg img{
+        width: 100%;
+    }
+
+    .contentEmployeeCard{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        margin-left: 10px;
+        gap: 7px;
+
+        h3{
+            color: black;
+        }
+
+        p{
+            color: grey;
+            font-size: 13px;
+        }
+
+    }
+}
+
