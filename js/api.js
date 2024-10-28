@@ -1,3 +1,5 @@
+import { addElementForFilter } from './filter.js';
+
 async function fetchUser(url){
 
     const user = await fetch(url);
@@ -55,9 +57,19 @@ function generateUserHtml(json){
 
 }
 
-for(let i = 0; i < 12; i++){
+async function executeFetch(){
 
-    fetchUser('https://randomuser.me/api/')
-        .then(generateUserHtml);
+    const usersFetched = [];
+    const employeeNumber = 12;
+
+    for ( let i = 0; i < employeeNumber; i++){
+
+        usersFetched.push(fetchUser('https://randomuser.me/api/').then(generateUserHtml));
     
+    }
+
+    await Promise.all(usersFetched);
+    addElementForFilter();
 }
+
+executeFetch();
