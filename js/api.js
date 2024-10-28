@@ -50,4 +50,5 @@ function generateUserHtml(json){
 
 }
 
-fetchUser('https://randomuser.me/api/');
+fetchUser('https://randomuser.me/api/')
+    .then(generateUserHtml);
