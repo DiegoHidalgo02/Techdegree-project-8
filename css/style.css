@@ -17,7 +17,7 @@
 
 .employeesContainer{
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(285px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     column-gap: 2em;
     row-gap: 2em;
 }
@@ -48,6 +48,8 @@
         justify-content: center;
         margin-left: 1.3em;
         gap: 7px;
+        overflow: hidden;
+        width: max-content;
 
         h3{
             color: black;
@@ -56,6 +58,9 @@
         p{
             color: grey;
             font-size: 13px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
         }
 
     }
@@ -76,14 +81,13 @@
     width: 100%;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
     background:rgba(0,0,0,0.5)
 }
 
 .modalCard{
-    width: 37%;
+    width: max-content;
+    margin-top: 13%;
     max-width: 400px;
-    margin-top: -150px;
     background-color: white;
     color: black;
     text-align: center;
@@ -122,4 +126,16 @@
     display: none;
 }
 
+
+@media screen and (min-width: 768px){
+
+    .employeesContainer{
+        grid-template-columns: repeat(auto-fit, minmax(285px, 1fr));
+    }
+
+    .modalCard{
+        width: 35%;
+    }
+
+}
 
