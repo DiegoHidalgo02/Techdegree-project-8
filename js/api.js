@@ -46,9 +46,16 @@ function generateUserHtml(json){
 
     employee.appendChild(content);
 
+    employee.dataset.phone = json.results[0].phone;
+    employee.dataset.adress = json.results[0].location.street.number + " " + json.results[0].location.street.name + " " + json.results[0].location.city + ", " + json.results[0].location.country + " " + json.results[0].location.postcode;
+                              //postal code   Via    città    abbrv stato   postal code
     employeesContainer.appendChild(employee);
 
 }
 
-fetchUser('https://randomuser.me/api/')
-    .then(generateUserHtml);
+for(let i = 0; i < 12; i++){
+
+    fetchUser('https://randomuser.me/api/')
+        .then(generateUserHtml);
+    
+}
