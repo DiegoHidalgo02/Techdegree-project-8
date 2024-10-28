@@ -76,6 +76,30 @@
     outline: none;
 }
 
+#searchFieldContainer{
+    position: relative;
+    width: max-content;
+}
+
+#dropdown{
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: 41px;
+    width: max-content;
+    min-width: 100%;
+    padding: 15px;
+    list-style: none;
+}
+
+#dropdown li{
+    padding: 8px 0 8px 0;
+}
+
+#dropdown li:not(:last-of-type){
+    border-bottom: 1px solid gray;
+}
+
 /*********************************************************************************************/
 
 /*OVERLAY*/
