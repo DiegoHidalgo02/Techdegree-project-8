@@ -7,7 +7,7 @@
 .container{
     width: 90%;
     margin: auto;
-    max-width: 1024px;
+    max-width: 1224px;
 
     > h3{
         margin-top: 40px;
@@ -24,13 +24,13 @@
 
 .employee{
     display: flex;
-    padding: 1em;
+    padding: 1.5em 2em;
     border: 1px solid gray;
     border-radius: 5px;
     cursor: pointer;
 
     .userImg{
-        width: 35%;
+        width: 32%;
         min-width: 90px;
         display: flex;
         flex-direction: column;
@@ -39,13 +39,14 @@
 
     .userImg img{
         width: 100%;
+        border-radius: 50%;
     }
 
     .contentEmployeeCard{
         display: flex;
         flex-direction: column;
         justify-content: center;
-        margin-left: 10px;
+        margin-left: 1.3em;
         gap: 7px;
 
         h3{
@@ -101,6 +102,7 @@
         width: 100%;
         img{
             width: 50%;
+            border-radius: 50%
         };
     }
 
