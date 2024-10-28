@@ -22,6 +22,7 @@ function generateUserHtml(json){
     const img = document.createElement("img");
     img.src = json.results[0].picture.medium;
     employee.dataset.img = json.results[0].picture.thumbnail;
+    employee.dataset.imgLarge = json.results[0].picture.large;
 
     userImg.appendChild(img);
 
@@ -47,8 +48,9 @@ function generateUserHtml(json){
     employee.appendChild(content);
 
     employee.dataset.phone = json.results[0].phone;
-    employee.dataset.adress = json.results[0].location.street.number + " " + json.results[0].location.street.name + " " + json.results[0].location.city + ", " + json.results[0].location.country + " " + json.results[0].location.postcode;
+    employee.dataset.address = json.results[0].location.street.number + " " + json.results[0].location.street.name + " " + json.results[0].location.city + ", " + json.results[0].location.country + " " + json.results[0].location.postcode;
                               //postal code   Via    città    abbrv stato   postal code
+    employee.dataset.birthday = json.results[0].registered.date;
     employeesContainer.appendChild(employee);
 
 }
