@@ -66,6 +66,16 @@
     }
 }
 
+#filter{
+    margin-bottom: 20px;
+    background-color: transparent;
+    border: 1px solid gray;
+    border-radius: 5px;
+    padding: 10px 0px 10px 12px;
+    width: 200px;
+    outline: none;
+}
+
 /*********************************************************************************************/
 
 /*OVERLAY*/
