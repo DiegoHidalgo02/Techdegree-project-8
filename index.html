@@ -10,14 +10,18 @@
 <body>
     <div class="container">
         <h3>AWASOME STARTUP EMPLOYEE DIRECTORY</h3>
-        <input type="text" name="filter" id="filter">
+        <div id="searchFieldContainer">
+            <input type="text" name="filter" id="filter">
+            <ul id="dropdown">
+            </ul>
+        </div>
         <div class="employeesContainer">
         </div>
     </div>
     <div class="overlay close">
     </div>
-    <script src="js/api.js"></script>
+    <script type="module" src="js/api.js"></script>
     <script src="js/overlay.js"></script>
-    <script src="js/filter.js"></script>
+    <script type="module" src="js/filter.js"></script>
 </body>
 </html>
