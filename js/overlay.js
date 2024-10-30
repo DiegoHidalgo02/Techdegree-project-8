@@ -1,11 +1,30 @@
+import { employees, iterator, resetIterator} from './filter.js';
+
 const overlay = document.querySelector(".overlay");
-const employeesContainer = document.querySelector(".employeesContainer");
+export const employeesContainer = document.querySelector(".employeesContainer");
+let actualyIterator;
+let data;
+
+function setIterator(index){
+    resetIterator();
+
+    if(index === 0){
+        data = iterator.next();
+    }
+
+    for (let i = 1; i < index; i++){
+        data = iterator.next();
+    }
+}
 
 employeesContainer.addEventListener("click", event => {
 
     const card = event.target.closest(".employee");
 
     if(!card) return;
+
+    actualyIterator = Array.from(employees).indexOf(card);
+    setIterator(actualyIterator);
 
     overlay.classList.remove("close");
     overlay.classList.add("open");
@@ -29,23 +48,31 @@ employeesContainer.addEventListener("click", event => {
     contentCard.className = "contentCard";
 
     const name = document.createElement("h3");
+    name.id = "nameModal"
     name.textContent = card.dataset.name;
 
     const email = document.createElement("p");
+    email.id = "emailModal"
     email.textContent = card.dataset.email;
 
     const city = document.createElement("p");
     city.textContent = card.dataset.city;
+    city.id = "cityModal";
 
     const line = document.createElement("hr");
 
     const number = document.createElement("p");
+    number.id = "numberModal";
     number.textContent = card.dataset.phone;
 
     const address = document.createElement("p");
+    address.id = "addressModal";
     address.textContent = card.dataset.address;
 
     const birthday = document.createElement("p");
+    birthday.id = "birthday";
+    birthday.textContent = card.dataset.birthday;
+
 
     [name, email, city, line, number, address, birthday].forEach(element => contentCard.appendChild(element));
     
@@ -55,6 +82,54 @@ employeesContainer.addEventListener("click", event => {
 
     overlay.appendChild(modalCard);
 });
+
+function changeModal(element){
+
+    const modalCard = document.querySelector(".modalCard");
+    const img = modalCard.querySelector("img")
+    const content = modalCard.querySelector(".contentCard");
+    const name = content.querySelector("#nameModal");
+    const email = content.querySelector("#emailModal");
+    const city = content.querySelector("#cityModal");
+    const number = content.querySelector("#numberModal");
+    const address = content.querySelector("#addressModal");
+    const birthday = content.querySelector("#birthday");
+
+    img.src = element.value[1].dataset.imgLarge;
+    name.textContent = element.value[1].dataset.name;
+    email.textContent = element.value[1].dataset.email;
+    city.textContent = element.value[1].dataset.city;
+    number.textContent = element.value[1].dataset.phone;
+    address.textContent = element.value[1].dataset.address;
+    birthday.textContent = element.value[1].dataset.birthday;
+
+}
+
+
+function nextCard(){
+
+    if(data.value[0] !== 11){
+       data = iterator.next();
+       changeModal(data);
+    }
+
+    if(data.value[0] === employees.length - 1){
+        resetIterator();
+        data = iterator.next();
+        changeModal(data);
+    }
+    
+    changeModal(data);
+}
+
+window.nextCard = nextCard;
+
+function previusCard(){
+
+
+}
+
+window.previusCard = previusCard;
 
 overlay.addEventListener("click", event => {
 
@@ -66,3 +141,4 @@ overlay.addEventListener("click", event => {
     }
 
 });
+

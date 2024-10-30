@@ -1,5 +1,5 @@
 const input = document.querySelector("#filter");
-let employees = [];
+export let employees = [];
 const dropDownList = document.querySelector("#dropdown");
 
 let arrayDimension;
@@ -7,16 +7,22 @@ let employeeCard;
 let card;
 let widthCard;
 let counterStyle = 0;
+export let iterator;
+
 export function addElementForFilter(){
 
     employees = document.querySelectorAll(".employee");
-    console.log(employees);
-
+    iterator = employees.entries();
     employeeCard = document.querySelector(".employee");
     card = window.getComputedStyle(employeeCard);
     widthCard = card.getPropertyValue('width');
     arrayDimension = employees.length;
     
+}
+
+export function resetIterator(){
+
+    iterator = employees.entries();
 }
 
 input.addEventListener("keyup", (event) => {
