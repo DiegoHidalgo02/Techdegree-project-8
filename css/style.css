@@ -115,12 +115,12 @@
     width: 100%;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
     background:rgba(0,0,0,0.5)
 }
 
 .modalCard{
     width: max-content;
-    margin-top: 13%;
     max-width: 400px;
     background-color: white;
     color: black;
@@ -154,6 +154,19 @@
     hr{
         margin: 1.7em 0 1.7em 0;
     }
+}
+
+.arrow{
+    position: absolute;
+    top: 50%;
+}
+
+.arrowLeft{
+    left: 20px;
+}
+
+.arrowRight{
+    right: 20px;
 }
 
 .close{
