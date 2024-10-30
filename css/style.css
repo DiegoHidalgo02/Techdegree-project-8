@@ -159,6 +159,7 @@
 .arrow{
     position: absolute;
     top: 50%;
+    cursor: pointer;
 }
 
 .arrowLeft{
