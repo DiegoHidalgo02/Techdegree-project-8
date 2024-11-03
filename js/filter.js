@@ -19,6 +19,16 @@ export function addElementForFilter(){
     
 }
 
+function displayName(value){
+
+    input.value = value;
+    dropDownList.innerHTML = "";
+    dropDownList.style.display = "none";
+
+}
+
+window.displayName = displayName;
+
 input.addEventListener("keyup", (event) => {
 
     const enterKey = event.key === "Enter";
@@ -41,8 +51,10 @@ input.addEventListener("keyup", (event) => {
 
             const li = document.createElement("li");
             li.textContent = element.dataset.name;
+            li.setAttribute("onclick", "displayName('" + element.dataset.name + "')");
             dropDownList.appendChild(li);
             dropDownList.style.display = "block";
+
             element.style.display = "flex";
 
             counterStyle += 0;
