@@ -51,8 +51,8 @@ function generateUserHtml(json){
 
     employee.dataset.phone = json.results[0].phone;
     employee.dataset.address = json.results[0].location.street.number + " " + json.results[0].location.street.name + " " + json.results[0].location.city + ", " + json.results[0].location.country + " " + json.results[0].location.postcode;
-                              //postal code   Via    città    abbrv stato   postal code
     employee.dataset.birthday = json.results[0].registered.date;
+
     employeesContainer.appendChild(employee);
 
 }
@@ -62,7 +62,7 @@ async function executeFetch(){
     const usersFetched = [];
     const employeeNumber = 12;
 
-    for ( let i = 0; i < employeeNumber; i++){
+    for ( let i = 0; i < employeeNumber; i++ ){
 
         usersFetched.push(fetchUser('https://randomuser.me/api/').then(generateUserHtml));
     

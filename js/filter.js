@@ -7,10 +7,10 @@ let employeeCard;
 let card;
 let widthCard;
 let counterStyle = 0;
+
 export function addElementForFilter(){
 
     employees = document.querySelectorAll(".employee");
-    console.log(employees);
 
     employeeCard = document.querySelector(".employee");
     card = window.getComputedStyle(employeeCard);
@@ -21,7 +21,11 @@ export function addElementForFilter(){
 
 input.addEventListener("keyup", (event) => {
 
-    if(event.key === "Enter" && input.value !== ""){
+    const enterKey = event.key === "Enter";
+    const notEnterKey = event.key !== "Enter";
+    const notEmptyInput = input.value !== "";
+
+    if( enterKey && notEmptyInput){
         input.value = dropDownList.firstChild.textContent;
         dropDownList.style.display = "none";
     }
@@ -30,7 +34,10 @@ input.addEventListener("keyup", (event) => {
 
     employees.forEach(element => {
 
-        if(element.dataset.name.toLowerCase().includes(input.value.toLowerCase()) && input.value != "" && event.key !== "Enter"){
+        const nameMatches = element.dataset.name.toLowerCase().includes(input.value.toLowerCase());
+        const nameNotMatches = !element.dataset.name.toLowerCase().includes(input.value.toLowerCase());
+
+        if(nameMatches && notEmptyInput && notEnterKey){
 
             const li = document.createElement("li");
             li.textContent = element.dataset.name;
@@ -44,7 +51,7 @@ input.addEventListener("keyup", (event) => {
 
             dropDownList.style.display = "none";
 
-        }else if(!element.dataset.name.toLowerCase().includes(input.value.toLowerCase()) && input.value != ""){
+        }else if(nameNotMatches && notEmptyInput){
 
             element.style.display = "none";
 
