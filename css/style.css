@@ -90,14 +90,19 @@
     min-width: 100%;
     padding: 15px;
     list-style: none;
+    cursor: pointer;
 }
 
 #dropdown li{
-    padding: 8px 0 8px 0;
+    padding: 8px 0 8px 8px;
 }
 
 #dropdown li:not(:last-of-type){
     border-bottom: 1px solid gray;
+}
+
+#dropdown li:hover{
+    background-color: gray;
 }
 
 /*********************************************************************************************/
