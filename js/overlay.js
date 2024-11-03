@@ -10,11 +10,13 @@ function setIterator(index){
 
     if(index === 0){
         data = iterator.next();
-    }
+    }else{
 
-    for (let i = 1; i < index; i++){
-        data = iterator.next();
-    }
+        for (let i = -1; i < index; i++){
+            data = iterator.next();
+        } 
+
+    }   
 }
 
 employeesContainer.addEventListener("click", event => {
@@ -108,18 +110,16 @@ function changeModal(element){
 
 function nextCard(){
 
+    if(data.value[0] === employees.length - 1){
+        resetIterator();
+        data.value[0] = 0;
+    }
+
     if(data.value[0] !== 11){
        data = iterator.next();
        changeModal(data);
     }
 
-    if(data.value[0] === employees.length - 1){
-        resetIterator();
-        data = iterator.next();
-        changeModal(data);
-    }
-    
-    changeModal(data);
 }
 
 window.nextCard = nextCard;
