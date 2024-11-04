@@ -1,5 +1,6 @@
 const input = document.querySelector("#filter");
-let employees = [];
+export let employees = [];
+export let employeesFiltered = [];
 const dropDownList = document.querySelector("#dropdown");
 
 let arrayDimension;
@@ -11,12 +12,22 @@ let counterStyle = 0;
 export function addElementForFilter(){
 
     employees = document.querySelectorAll(".employee");
-
+    employeesFiltered = Array.from(employees).map(employee => employee);
     employeeCard = document.querySelector(".employee");
     card = window.getComputedStyle(employeeCard);
     widthCard = card.getPropertyValue('width');
     arrayDimension = employees.length;
     
+}
+
+function adjustGridOneElement(){
+
+    document.querySelector('.employeesContainer').style.gridTemplateColumns = `repeat(auto-fit, minmax(200px, ${widthCard}))`;
+
+}
+
+function filterEmployeesArray(){
+    employeesFiltered = Array.from(employees).filter(employee =>  employee.style.display === "flex" );
 }
 
 function displayName(value){
@@ -25,6 +36,15 @@ function displayName(value){
     dropDownList.innerHTML = "";
     dropDownList.style.display = "none";
 
+    employees.forEach(employee => {
+        if(!employee.dataset.name.toLowerCase().includes(input.value.toLowerCase())){
+            employee.style.display = "none";
+        }
+
+    })
+
+    adjustGridOneElement();
+    filterEmployeesArray();
 }
 
 window.displayName = displayName;
@@ -84,7 +104,7 @@ input.addEventListener("keyup", (event) => {
 
     if (arrayDimension  > counterStyle && arrayDimension - counterStyle === 1 ||  arrayDimension - counterStyle === 2 ){
 
-        document.querySelector('.employeesContainer').style.gridTemplateColumns = `repeat(auto-fit, minmax(200px, ${widthCard}))`;
+        adjustGridOneElement();
         counterStyle = 0;
 
     }else{
@@ -92,5 +112,7 @@ input.addEventListener("keyup", (event) => {
         document.querySelector('.employeesContainer').style.gridTemplateColumns = `repeat(auto-fit, minmax(285px, 1fr))`;
         counterStyle = 0;
     }
+
+    filterEmployeesArray();
 
 })
