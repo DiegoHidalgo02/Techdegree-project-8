@@ -123,6 +123,20 @@
     background:rgba(0,0,0,0.5)
 }
 
+.arrow{
+    position: absolute;
+    top: 50%;
+    cursor: pointer;
+}
+
+.arrowLeft{
+    left: 15px;
+}
+
+.arrowRight{
+    right: 15px;
+}
+
 .modalCard{
     margin-top: 13%;
     max-width: 280px;
