@@ -9,7 +9,7 @@ employeesContainer.addEventListener("click", event => {
 
     if(!card) return;
 
-    const index = employees.indexOf(card);
+    const index = Array.from(employees).indexOf(card);
 
     overlay.classList.remove("close");
     overlay.classList.add("open");
