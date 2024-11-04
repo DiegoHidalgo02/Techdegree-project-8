@@ -124,9 +124,8 @@
 }
 
 .modalCard{
-    width: max-content;
     margin-top: 13%;
-    max-width: 400px;
+    max-width: 280px;
     background-color: white;
     color: black;
     text-align: center;
@@ -154,6 +153,10 @@
         display: flex;
         flex-direction: column;
         gap: 15px;
+
+        p{
+            word-wrap:break-word
+        }
     }
 
     hr{
@@ -174,6 +177,7 @@
 
     .modalCard{
         width: 35%;
+        max-width: 450px;
     }
 
 }
