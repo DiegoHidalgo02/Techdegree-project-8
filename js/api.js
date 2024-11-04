@@ -1,5 +1,7 @@
 import { addElementForFilter } from './filter.js';
 
+const employeesContainer = document.querySelector(".employeesContainer");
+
 async function fetchUser(url){
 
     const user = await fetch(url);
