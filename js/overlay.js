@@ -1,4 +1,4 @@
-import { employees } from "./filter";
+import { employees } from "./filter.js";
 
 const overlay = document.querySelector(".overlay");
 const employeesContainer = document.querySelector(".employeesContainer");
