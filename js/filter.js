@@ -20,12 +20,31 @@ export function addElementForFilter(){
     
 }
 
+function adjustGridOneElement(){
+
+    document.querySelector('.employeesContainer').style.gridTemplateColumns = `repeat(auto-fit, minmax(200px, ${widthCard}))`;
+
+}
+
+function filterEmployeesArray(){
+    employeesFiltered = Array.from(employees).filter(employee =>  employee.style.display === "flex" );
+}
+
 function displayName(value){
 
     input.value = value;
     dropDownList.innerHTML = "";
     dropDownList.style.display = "none";
 
+    employees.forEach(employee => {
+        if(!employee.dataset.name.toLowerCase().includes(input.value.toLowerCase())){
+            employee.style.display = "none";
+        }
+
+    })
+
+    adjustGridOneElement();
+    filterEmployeesArray();
 }
 
 window.displayName = displayName;
@@ -85,7 +104,7 @@ input.addEventListener("keyup", (event) => {
 
     if (arrayDimension  > counterStyle && arrayDimension - counterStyle === 1 ||  arrayDimension - counterStyle === 2 ){
 
-        document.querySelector('.employeesContainer').style.gridTemplateColumns = `repeat(auto-fit, minmax(200px, ${widthCard}))`;
+        adjustGridOneElement();
         counterStyle = 0;
 
     }else{
@@ -94,6 +113,6 @@ input.addEventListener("keyup", (event) => {
         counterStyle = 0;
     }
 
-    employeesFiltered = Array.from(employees).filter(employee =>  employee.style.display === "flex" );
+    filterEmployeesArray();
 
 })
