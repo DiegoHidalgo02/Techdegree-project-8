@@ -23,7 +23,7 @@ function updateModal(element){
     city.textContent = element.dataset.city;
     number.textContent = element.dataset.phone;
     address.textContent = element.dataset.address;
-    birthday.textContent = element.dataset.birthday;
+    birthday.textContent = "birthday: " + element.dataset.birthday;
 
 }
 
@@ -42,7 +42,10 @@ function nextCard(){
 
     }
 
-    updateModal(employee);
+    if(employeesFiltered.length - 1 !== 0){
+      updateModal(employee);  
+    }
+    
 }
 
 function previusCard(){
@@ -59,7 +62,10 @@ function previusCard(){
 
     }
 
-    updateModal(employee);
+    if(employeesFiltered.length - 1 !== 0){
+        updateModal(employee);   
+    }
+    
 
 }
 
