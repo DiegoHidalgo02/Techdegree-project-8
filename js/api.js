@@ -53,7 +53,7 @@ function generateUserHtml(json){
 
     employee.dataset.phone = json.results[0].phone;
     employee.dataset.address = json.results[0].location.street.number + " " + json.results[0].location.street.name + " " + json.results[0].location.city + ", " + json.results[0].location.country + " " + json.results[0].location.postcode;
-    employee.dataset.birthday = json.results[0].registered.date;
+    employee.dataset.birthday = json.results[0].registered.date.slice(0, 10).replaceAll("-", "/");
 
     employeesContainer.appendChild(employee);
 
