@@ -127,14 +127,16 @@
     position: absolute;
     top: 50%;
     cursor: pointer;
+    width: min-content;
 }
 
 .arrowLeft{
-    left: 15px;
+    left: 5px;
 }
 
 .arrowRight{
-    right: 15px;
+    right: 5px;
+    transform: rotate(180deg);
 }
 
 .modalCard{
