@@ -1,5 +1,5 @@
 const input = document.querySelector("#filter");
-let employees = [];
+export let employees = [];
 const dropDownList = document.querySelector("#dropdown");
 
 let arrayDimension;
