@@ -1,5 +1,6 @@
 const input = document.querySelector("#filter");
 export let employees = [];
+export let employeesFiltered = [];
 const dropDownList = document.querySelector("#dropdown");
 
 let arrayDimension;
@@ -11,7 +12,7 @@ let counterStyle = 0;
 export function addElementForFilter(){
 
     employees = document.querySelectorAll(".employee");
-
+    employeesFiltered = Array.from(employees).map(employee => employee);
     employeeCard = document.querySelector(".employee");
     card = window.getComputedStyle(employeeCard);
     widthCard = card.getPropertyValue('width');
@@ -92,5 +93,7 @@ input.addEventListener("keyup", (event) => {
         document.querySelector('.employeesContainer').style.gridTemplateColumns = `repeat(auto-fit, minmax(285px, 1fr))`;
         counterStyle = 0;
     }
+
+    employeesFiltered = Array.from(employees).filter(employee =>  employee.style.display === "flex" );
 
 })
