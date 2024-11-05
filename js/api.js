@@ -4,13 +4,19 @@ const employeesContainer = document.querySelector(".employeesContainer");
 
 async function fetchUser(url){
 
-    const user = await fetch(url);
+    try{
 
-    const userJSON = await user.json();
+        const user = await fetch(url);
 
-    console.log(userJSON);
+        const userJSON = await user.json();
 
-    return userJSON;
+        return userJSON;
+
+    }catch{
+
+        throw error;
+
+    }
 
 }
 
@@ -66,7 +72,11 @@ async function executeFetch(){
 
     for ( let i = 0; i < employeeNumber; i++ ){
 
-        usersFetched.push(fetchUser('https://randomuser.me/api/').then(generateUserHtml));
+        usersFetched.push(
+            fetchUser('https://randomuser.me/api/')
+                .then(generateUserHtml)
+                .catch(e => { console.error(e) })
+        );
     
     }
 
